@@ -1,9 +1,7 @@
 <template>
   <HeaderElement :activate_home="true"/>
-  <div class="home-component" v-for="user in users" v-bind:key="user.id">
-      <div>
-        <UserComment :title="user.title" :text="user.text" :author="user.author" :date="user.date" :anime="user.anime"/>
-      </div>
+  <div class="comments-container" v-for="user in users" v-bind:key="user.id">
+      <UserComment :title="user.title" :text="user.text" :author="user.author" :date="user.date" :anime="user.anime"/>
   </div>
 </template>
 
@@ -36,8 +34,15 @@ export default {
 </script>
 
 <style scoped>
-.home-component {
-  width: 40%;
+.comments-container { 
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+/* .home-component {
+  margin-bottom: 25px;
+  width: 1200px;
+} */
 
 </style>
