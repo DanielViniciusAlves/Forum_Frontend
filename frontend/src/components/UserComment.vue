@@ -95,7 +95,7 @@ export default {
   box-sizing: border-box;
   color: #eee;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 15px;
   text-align: center;
   width: 60px;
   height: 30px;
