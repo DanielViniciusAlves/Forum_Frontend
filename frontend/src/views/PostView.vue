@@ -63,7 +63,7 @@ export default {
   box-sizing: border-box;
   height: 700px;
   padding: 20px;
-  width: 90%;
+  width: 60%;
 }
 
 .title {
