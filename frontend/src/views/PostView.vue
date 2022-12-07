@@ -61,7 +61,7 @@ export default {
   background-color: #15172b;
   border-radius: 20px;
   box-sizing: border-box;
-  height: 700px;
+  height: 680px;
   padding: 20px;
   width: 60%;
 }
@@ -182,11 +182,11 @@ export default {
   color: #eee;
   cursor: pointer;
   font-size: 18px;
-  height: 50px;
-  margin-top: 38px;
   text-align: center;
   width: 80px;
+  height: 40px;
   float: right;
+  margin-top: 15px;
 }
 
 .submit:active {
