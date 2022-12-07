@@ -27,7 +27,8 @@ export default {
 <style scoped>
 .user-comment {
   margin-bottom: 10px;
-  background-color: rgb(157, 158, 161);
+  background-color: #15172b;
+  color: #eee;
   border-radius: 10px;
   padding: 10px;
   height: 100px;
