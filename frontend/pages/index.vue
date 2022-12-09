@@ -1,33 +1,31 @@
 <template>
   <div>
     <HeaderElement :activate_home="true"/>
-    <div class="comments-container" v-for="user in users" v-bind:key="user.id">
-        <UserComment :title="user.title" :text="user.text" :author="user.author" :date="user.date" :anime="user.anime"/>
-    </div>
+    <PostElement @post-send="makeReload" />
+    <CommentsLoop @reload="makeReload" :key="componentKey" />
   </div>
 </template>
 
 <script>
 import HeaderElement from '~/components/HeaderElement.vue'
-import UserComment from '~/components/UserComment.vue'
+import CommentsLoop from '~/components/CommentsLoop.vue'
+import PostElement from '~/components/PostElement.vue'
 
 export default {
   components: {
     HeaderElement,
-    UserComment
+    CommentsLoop,
+    PostElement
   },
   data() {
     return {
-      users: null,
+      componentKey: 0,
     };
   },
-  created: function() {
-    this.$axios
-      .get('http://localhost:4000/comments')
-      .then(res => {
-        console.log(res.data)
-        this.users = res.data;
-      })
+  methods: {
+    makeReload() {
+      this.componentKey += 1;
+    }
   }
 }
 </script>
@@ -38,6 +36,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 350px;
 }
 </style>
 
