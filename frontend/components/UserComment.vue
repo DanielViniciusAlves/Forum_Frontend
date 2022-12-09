@@ -1,5 +1,5 @@
 <template>
-    <div class="user-comment">
+    <div v-if="!editMode" class="user-comment">
       <div class="title">{{title}}</div>
       <div class="subtitle"> 
         <span class="author-subtitle">Author: {{author}}, {{date}}</span> 
@@ -7,21 +7,42 @@
       </div>
       <div class="commentary">{{text}}</div>
       <div class="button-container">
-        <router-link to="/edit"><button class="submit">Edit</button></router-link>  
+        <button v-on:click="editMode = true" class="submit">Edit</button>
+        <DeleteComment v-on="$listeners" :id="this.id" />
       </div>
+    </div>
+    <div  class="edit-comment" v-else>
+      <EditComment @edit-send="editModeOff" v-on="$listeners" :id="this.id" :title="this.title" :text="this.text" :author="this.author" :date="this.date" :anime="this.anime"/>
     </div>
 </template>
 
 <script>
+import DeleteComment from '@/components/DeleteComment.vue'
+import EditComment from '@/components/EditComment.vue'
 
 export default {
+  components: {
+    DeleteComment,
+    EditComment
+  },
   name: 'UserComment',
   props: {
+    id: Number,
     title: String,
     text: String,
     author: String,
     date: String,
     anime: String
+  },
+  data() {
+    return {
+      editMode: false
+    }
+  },
+  methods: {
+    editModeOff() { 
+        this.editMode = false
+    }
   }
 }
 </script>
@@ -29,19 +50,13 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .commentary {
-  /* color: #eee;
-  font-family: sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  margin-top: 10px;
-  height: 120px; */
   background-color: #303245;
   border-radius: 12px;
   border: 0;
   box-sizing: border-box;
   color: #eee;
   font-size: 18px;
-  height: 120px;
+  height: 50%;
   outline: 0;
   padding: 10px 10px 5px;
   width: 100%;
@@ -63,16 +78,13 @@ export default {
   font-family: sans-serif;
   font-size: 12px;
   font-weight: 600;
-  /* margin: 10px 0px; */
-  /* padding-left: 10px; */
   float: right;
 }
 .title {
   color: #eee;
   font-family: sans-serif;
-  font-size: 36px;
+  font-size: 25px;
   font-weight: 600;
-  margin-top: 15px;
   padding-left: 5px;
 }
 .user-comment {
@@ -81,8 +93,18 @@ export default {
   color: #eee;
   border-radius: 10px;
   padding: 20px;
-  /* height: 100px; */
-  width: 60%;
+  height: 100%;
+  width: 45%;
+}
+
+.edit-comment {
+  margin-bottom: 30px;
+  background-color: #15172b;
+  color: #eee;
+  border-radius: 10px;
+  padding: 20px;
+  height: 100%;
+  width: 45%;
 }
 
 .button-container {
@@ -104,5 +126,11 @@ export default {
   float: right;
   margin-top: 15px;
 }
+
+.post-container {
+    align-items: center; 
+    display: flex;
+    justify-content: center;
+  }
 
 </style>
