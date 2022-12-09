@@ -35,7 +35,11 @@ module.exports = {
       }
     }
   },
-  modules: ['@nuxtjs/axios']
+  modules: ['@nuxtjs/axios', '@nuxtjs/proxy'],
+  proxy: {
+    '/api/v1': { target: 'http://localhost:4000/', pathRewrite: {'^/api/v1': ''} }
+  }
+
   
 }
 
