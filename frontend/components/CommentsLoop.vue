@@ -10,6 +10,7 @@
 import UserComment from '~/components/UserComment.vue'
 
 export default {
+name: "ComponentsLoop",
 components: {
     UserComment,
 },
