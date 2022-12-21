@@ -4,14 +4,14 @@
             <div class="form">
                 <div class="title">Login in the forum</div>
                 <div class="input-container ic2">
-                    <input id="author" class="input" type="text" placeholder=" " />
+                    <input v-model="username" ref="username" id="username" class="input" type="text" placeholder=" " />
                     <div class="cut"></div>
-                    <label for="author" class="placeholder">Username</label>
+                    <label for="username" class="placeholder">Username</label>
                 </div>
                 <div class="input-container ic2">
-                    <input id="author" class="input" type="text" placeholder=" " />
+                    <input v-model="password" ref="password" id="password" class="input" type="text" placeholder=" " />
                     <div class="cut"></div>
-                    <label for="author" class="placeholder">Password</label>
+                    <label for="password" class="placeholder">Password</label>
                 </div>
                 <div class="form-footer">
                     <span class="subtitle">If you forgot you password click here</span>
@@ -38,8 +38,8 @@ export default {
             headers: { "content-type": "application/json" }
         };
         await this.$axios.post(`/api/v1${PATH_API}`, {
-            title: this.username,
-            anime: this.password,
+            username: this.username,
+            password: this.password,
         },
         config)
         .then((response) => {
