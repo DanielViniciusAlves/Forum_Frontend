@@ -35,7 +35,8 @@ export default {
 
         const PATH_API = '/login'
         const config = {
-            headers: { "content-type": "application/json" }
+            headers: { "Content-Type": "application/json" },
+            withCredentials: true , 
         };
         await this.$axios.post(`/api/v1${PATH_API}`, {
             username: this.username,
@@ -43,7 +44,11 @@ export default {
         },
         config)
         .then((response) => {
-            console.log(response);
+            this.$cookies.set('refresh-token', response.data.refresh_token, {
+              path: '/'
+            })
+            window.localStorage.setItem('access-token', response.data.access_token)
+            this.$store.state.authenticated = true
         }, (error) => {
             console.log(error);
         });

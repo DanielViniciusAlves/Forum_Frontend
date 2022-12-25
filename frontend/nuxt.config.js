@@ -38,7 +38,10 @@ module.exports = {
   modules: ['@nuxtjs/axios', '@nuxtjs/proxy'],
   proxy: {
     '/api/v1': { target: 'http://localhost:4000/', pathRewrite: {'^/api/v1': ''} }
-  }
+  },
+  plugins: [
+    '~/plugins/vue-cookies'
+  ]
 
   
 }
