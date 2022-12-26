@@ -1,0 +1,30 @@
+[
+  {
+    "name": "edit",
+    "path": "/edit",
+    "component": "/home/daniel/Desktop/UnB/Go_Forum/frontend/pages/edit.vue",
+    "chunkName": "pages/edit",
+    "_name": "_2381df37"
+  },
+  {
+    "name": "login",
+    "path": "/login",
+    "component": "/home/daniel/Desktop/UnB/Go_Forum/frontend/pages/login.vue",
+    "chunkName": "pages/login",
+    "_name": "_5819648c"
+  },
+  {
+    "name": "post",
+    "path": "/post",
+    "component": "/home/daniel/Desktop/UnB/Go_Forum/frontend/pages/post.vue",
+    "chunkName": "pages/post",
+    "_name": "_1db86266"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/home/daniel/Desktop/UnB/Go_Forum/frontend/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_e31c7d16"
+  }
+]

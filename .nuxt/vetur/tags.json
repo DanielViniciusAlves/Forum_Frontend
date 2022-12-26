@@ -1,0 +1,23 @@
+{
+  "CommentsLoop": {
+    "description": "Auto imported from components/CommentsLoop.vue"
+  },
+  "DeleteComment": {
+    "description": "Auto imported from components/DeleteComment.vue"
+  },
+  "EditComment": {
+    "description": "Auto imported from components/EditComment.vue"
+  },
+  "HeaderElement": {
+    "description": "Auto imported from components/HeaderElement.vue"
+  },
+  "LoginComponent": {
+    "description": "Auto imported from components/LoginComponent.vue"
+  },
+  "PostElement": {
+    "description": "Auto imported from components/PostElement.vue"
+  },
+  "UserComment": {
+    "description": "Auto imported from components/UserComment.vue"
+  }
+}
