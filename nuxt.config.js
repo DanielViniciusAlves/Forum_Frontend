@@ -39,7 +39,7 @@ export default {
   ],
 
   proxy: {
-    '/api/v1': { target: 'http://localhost:4000/', pathRewrite: {'^/api/v1': ''} }
+    '/api/v1': { target: 'http://localhost:4000', pathRewrite: {'^/api/v1': ''} }
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

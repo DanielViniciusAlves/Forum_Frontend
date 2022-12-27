@@ -11,11 +11,9 @@ import HeaderElement from '~/components/HeaderElement.vue'
 import CommentsLoop from '~/components/CommentsLoop.vue'
 import PostElement from '~/components/PostElement.vue'
 
-export default {
-  mounted() {
-    console.log('getCount: ' + this.$store.getters.getCount)
-    alert('getCount: ' + this.$store.getters.getCount)
-  },
+import { auth } from "../auth.js";
+
+export default { 
   components: {
     HeaderElement,
     CommentsLoop,
@@ -30,6 +28,9 @@ export default {
     makeReload() {
       this.componentKey += 1;
     }
+  },
+  beforeCreate() {
+    auth(this.$axios, this.$router)
   }
 }
 </script>

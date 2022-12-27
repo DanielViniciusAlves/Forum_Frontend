@@ -46,7 +46,9 @@ export default {
             this.$cookies.set('refresh-token', response.data.refresh_token, {
               path: '/'
             })
+
             window.localStorage.setItem('access-token', response.data.access_token)
+
         }, (error) => {
             console.log(error);
         });
